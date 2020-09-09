@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: John Doe
-language: en
+language: zh-CN  # 指定语言，可不改
 timezone: ''
 
 # URL
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yun
+theme: fluid  # 指定主题
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -107,3 +107,6 @@ deploy:
   repo: https://github.com/daomengRen/daomengren.github.io # 比如：https://github.com/YunYouJun/yunyoujun.github.io
   branch: master # 默认使用 master 分支
   message: Update Hexo Static Content # 你可以自定义此次部署更新的说明
+
+
+all_minifier: true
