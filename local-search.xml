@@ -4,11 +4,36 @@
   
   
   <entry>
+    <title>JAVA中的移位运算符</title>
+    <link href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <url>/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JAVA中的移位运算符"><a href="#JAVA中的移位运算符" class="headerlink" title="JAVA中的移位运算符"></a>JAVA中的移位运算符</h1><h2 id="java中有3中移位运算符"><a href="#java中有3中移位运算符" class="headerlink" title="java中有3中移位运算符"></a>java中有3中移位运算符</h2><ul><li>&lt;&lt;  :  左移运算符，不改变符号位，num &lt;&lt; n 表示二进制左移n位，结果相当于 num * (2的n次方)</li><li>&gt;&gt;  :  右移运算符，不改变符号位，num &gt;&gt; n 表示二进制右移n位，结果相当于 num / (2的n次方)</li><li>&gt;&gt;&gt; : 无符号右移，长度扩展为4字节，最高位都为0，但正数扩展位补0，负数扩展位补1。若无扩展，空位补0 </li></ul><p>例子:</p><ul><li><p>&lt;&lt;  :</p><p>  ​        -3 &lt;&lt; 1<br>  ​        -3的二进制表示为10000011，左移一位后不改变符号位（最高位），移位后为10000110，结果为 -3 * (2的1次方)  =  -6</p></li><li><p>&gt;&gt;  :</p><p>​        -3 &gt;&gt; 1<br>​        同上，右移一位后不改变符号位（最高位），移位后为10000001，结果为 -3 / (2的1次方)  =  -1</p></li><li><p>&gt;&gt;&gt; :</p><p>​        -3 &gt;&gt;&gt; 1<br>长度扩展为4字节(32位)，最高位为0，负数扩展位补1，移位后为01111111111111111111111111111110，结果为 2147483646（Integer.MAX_VALUE - 1）</p><p>​        3 &gt;&gt;&gt; 1<br>​        同上，区别在于正数扩展位补0，移位后为00000000000000000000000000000001，结果为 1<br>​        若无扩展（int类型），空位补上0</p><p>-733183670&gt;&gt;&gt;8</p><p><img src="/img/Java/ex1.png"></p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2020/09/09/hello-world/"/>
     <url>/2020/09/09/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="hljs bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="hljs bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="hljs bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hello-Life！"><a href="#Hello-Life！" class="headerlink" title="Hello Life！"></a>Hello Life！</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。平时，我很喜欢去看别人的blog，</p>]]></content>
     
     
     
