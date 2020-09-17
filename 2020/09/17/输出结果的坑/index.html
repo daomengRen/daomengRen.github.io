@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - Mine Life</title>
+  <title>输出结果题的坑 - Mine Life</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-09 08:55" pubdate>
-        2020年9月9日 早上
+      <time datetime="2020-09-17 19:00" pubdate>
+        2020年9月17日 晚上
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      40 字
+      666 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -217,16 +217,85 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">输出结果题的坑</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="Hello-Life！"><a href="#Hello-Life！" class="headerlink" title="Hello Life！"></a>Hello Life！</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。平时，我很喜欢去看别人的blog，</p>
+              <h1 id="记录一下做输出结果题的坑吧"><a href="#记录一下做输出结果题的坑吧" class="headerlink" title="记录一下做输出结果题的坑吧"></a>记录一下做输出结果题的坑吧</h1><h2 id="1-特别要注意"><a href="#1-特别要注意" class="headerlink" title="1. 特别要注意+"></a>1. 特别要注意<code>+</code></h2><p>​    java中**<code>+</code>** 除了最普通的加法运算，要特别注意<big>它还能连接字符串</big></p>
+<h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2. 注意"></a>2. 注意</h2><pre><div class="caption"><span>+ 'c');</span></div><code class="hljs System.out.println('b'">System.out.println(&#39;b&#39; + &#39;c&#39;);</code></pre>
+
+<p>这个结果竟然是<strong>197</strong>，刚开始以为是<code>bc</code>，没想到出错了，原因如下：<br>char 类型在运算的时候，是自动转换为int类型 进行计算的</p>
+<p>附上详细的转换规则：</p>
+<ul>
+<li>Boolean类型不参与转换</li>
+<li>默认转换<ul>
+<li>从小到大</li>
+<li>byte、short、char –&gt; int –&gt; long –&gt; float –&gt;double</li>
+<li>byte、short、shar之间不相互转换，直接转换int参与运算</li>
+</ul>
+</li>
+<li>强制转换<ul>
+<li>从大到小</li>
+<li>可能会存在精度损失，一般不建议</li>
+<li>格式：<code>目标数据类型 变量名 =(目标数据类型)(被转换数据)</code> </li>
+</ul>
+</li>
+</ul>
+<p>运算时的隐式转换</p>
+<ol>
+<li><p>算术运算符</p>
+<ol>
+<li><p>单目运算符：+ (取正)   -(取负)  ++(自增)  –(自减)</p>
+<p>+  - ：当操作数为byte，short，char时，自动转换为int进行计算</p>
+<p>​            当操作数为int，long时，不转换，原来是啥还是啥</p>
+<p>++   –: 不管操作数类型，不转换</p>
+<pre><code>       2. 双目运算符：+  -  *  /  %</code></pre>
+<p>当操作数中没有long类型时，两个操作数中的非int类型会自动转换为int参与运算，返回值为int</p>
+<p>当两个操作数中含有lont类型时，两个操作数中的非long类型会自动转换为long参与运算，返回值为long</p>
+</li>
+</ol>
+</li>
+<li><p>位运算符</p>
+<ol>
+<li><p>&amp; | ^</p>
+<p>当两个操作数中没有long类型时，两个操作数中非int类型会先自动转换为int类型，再参与运算，返回结果为int<br>当两个操作数中含有long类型时，两个操作数中非long类型会自动转换为long类型，再参与运算，返回结果为long</p>
+<pre><code>       2. ~</code></pre>
+<p>当操作数是byte,short,char时，会自动转化为int类型；返回结果为int。<br>当操作数是int,long时，不转化，原来是啥还是啥</p>
+<pre><code>3. &lt;&lt;   &gt;&gt;  &gt;&gt;&gt;</code></pre>
+<p>当操作数是byte,short,char时，会自动转化为int类型；返回结果为int。<br>当操作数是int,long时，不转化，原来是啥还是啥</p>
+</li>
+</ol>
+</li>
+<li><p>赋值运算符</p>
+<ol>
+<li><p>基本赋值运算符 =</p>
+<p>变量 = 变量：小赋大，自动转；大赋小，不自动转换；<br>变量 = 常量：不自动类型转换</p>
+<pre><code>        2. 扩展赋值运算符：+=、-=、*=、/=、%=</code></pre>
+<p>展赋值运算符隐含了强制类型转换，即： s += 1  等价于  s = (s的数据类型)(s + 1)</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>总结：除了自增和自减不进行转化外，其它情况都是无long型时，所有非int类型转成int类型；有long类型时，都转成long类型</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java%E7%AC%94%E8%AE%B0/">Java笔记</a>
+                    
+                  </div>
                 
               </div>
               
@@ -237,15 +306,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                      <a href="/2020/09/17/java%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JAVA中的移位运算符</span>
+                        <span class="hidden-mobile">Java变量的初始化</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                        <span class="hidden-mobile">JAVA中的移位运算符</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -411,7 +486,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hello World&nbsp;",
+        "输出结果题的坑&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>Java变量的初始化</title>
+    <link href="/2020/09/17/java%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <url>/2020/09/17/java%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Java变量的初始化"><a href="#Java变量的初始化" class="headerlink" title="Java变量的初始化"></a>Java变量的初始化</h1><h2 id="1-局部变量初始化"><a href="#1-局部变量初始化" class="headerlink" title="1.  局部变量初始化"></a>1.  局部变量初始化</h2><p>（局部变量：函数、语句中的变量，只在所属区域内有效）<br>局部变量声明后，Java虚拟机不会自动给它初始化为默认值。<br>因此对于局部变量，必须经过显示的初始化，才能使用它，如果使用一个没有被初始化的局部变量，<strong>编译器会报错</strong>。</p><p>局部变量存储于虚拟机栈的局部变量表中</p><h2 id="2-类的成员变量"><a href="#2-类的成员变量" class="headerlink" title="2.类的成员变量"></a>2.类的成员变量</h2><p>不管程序有没有显示的初始化，Java虚拟机都会先自动给它<strong>初始化为默认值</strong>。<br>对于数组，数组引用类型的变量的默认值为null。当数组变量实例化后，如果没有显式地为每个元素赋值，Java会把该数组的所有元素初始化为相应类型的默认值。</p><p>这是因为所有对象实例以及数组是在堆上分配内存的。在内存分配完成后，虚拟机需要将分配到的内存空间都初始化为零值（不包括对象头）。这一操作保证了对象的实例字段在java代码中可以不赋初值就直接使用，程序能访问这些字段的数据类型所对应的零值。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>输出结果题的坑</title>
+    <link href="/2020/09/17/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E5%9D%91/"/>
+    <url>/2020/09/17/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E5%9D%91/</url>
+    
+    <content type="html"><![CDATA[<h1 id="记录一下做输出结果题的坑吧"><a href="#记录一下做输出结果题的坑吧" class="headerlink" title="记录一下做输出结果题的坑吧"></a>记录一下做输出结果题的坑吧</h1><h2 id="1-特别要注意"><a href="#1-特别要注意" class="headerlink" title="1. 特别要注意+"></a>1. 特别要注意<code>+</code></h2><p>​    java中**<code>+</code>** 除了最普通的加法运算，要特别注意<big>它还能连接字符串</big></p><h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2. 注意"></a>2. 注意</h2><pre><div class="caption"><span>+ 'c');</span></div><code class="hljs System.out.println('b'">System.out.println(&#39;b&#39; + &#39;c&#39;);</code></pre><p>这个结果竟然是<strong>197</strong>，刚开始以为是<code>bc</code>，没想到出错了，原因如下：<br>char 类型在运算的时候，是自动转换为int类型 进行计算的</p><p>附上详细的转换规则：</p><ul><li>Boolean类型不参与转换</li><li>默认转换<ul><li>从小到大</li><li>byte、short、char –&gt; int –&gt; long –&gt; float –&gt;double</li><li>byte、short、shar之间不相互转换，直接转换int参与运算</li></ul></li><li>强制转换<ul><li>从大到小</li><li>可能会存在精度损失，一般不建议</li><li>格式：<code>目标数据类型 变量名 =(目标数据类型)(被转换数据)</code> </li></ul></li></ul><p>运算时的隐式转换</p><ol><li><p>算术运算符</p><ol><li><p>单目运算符：+ (取正)   -(取负)  ++(自增)  –(自减)</p><p>+  - ：当操作数为byte，short，char时，自动转换为int进行计算</p><p>​            当操作数为int，long时，不转换，原来是啥还是啥</p><p>++   –: 不管操作数类型，不转换</p><pre><code>       2. 双目运算符：+  -  *  /  %</code></pre><p>当操作数中没有long类型时，两个操作数中的非int类型会自动转换为int参与运算，返回值为int</p><p>当两个操作数中含有lont类型时，两个操作数中的非long类型会自动转换为long参与运算，返回值为long</p></li></ol></li><li><p>位运算符</p><ol><li><p>&amp; | ^</p><p>当两个操作数中没有long类型时，两个操作数中非int类型会先自动转换为int类型，再参与运算，返回结果为int<br>当两个操作数中含有long类型时，两个操作数中非long类型会自动转换为long类型，再参与运算，返回结果为long</p><pre><code>       2. ~</code></pre><p>当操作数是byte,short,char时，会自动转化为int类型；返回结果为int。<br>当操作数是int,long时，不转化，原来是啥还是啥</p><pre><code>3. &lt;&lt;   &gt;&gt;  &gt;&gt;&gt;</code></pre><p>当操作数是byte,short,char时，会自动转化为int类型；返回结果为int。<br>当操作数是int,long时，不转化，原来是啥还是啥</p></li></ol></li><li><p>赋值运算符</p><ol><li><p>基本赋值运算符 =</p><p>变量 = 变量：小赋大，自动转；大赋小，不自动转换；<br>变量 = 常量：不自动类型转换</p><pre><code>        2. 扩展赋值运算符：+=、-=、*=、/=、%=</code></pre><p>展赋值运算符隐含了强制类型转换，即： s += 1  等价于  s = (s的数据类型)(s + 1)</p></li></ol></li></ol><p>总结：除了自增和自减不进行转化外，其它情况都是无long型时，所有非int类型转成int类型；有long类型时，都转成long类型</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JAVA中的移位运算符</title>
     <link href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <url>/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
@@ -30,12 +80,18 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="/2020/09/09/hello-world/"/>
-    <url>/2020/09/09/hello-world/</url>
+    <link href="/2020/09/13/hello-world/"/>
+    <url>/2020/09/13/hello-world/</url>
     
-    <content type="html"><![CDATA[<h1 id="Hello-Life！"><a href="#Hello-Life！" class="headerlink" title="Hello Life！"></a>Hello Life！</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​        在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。平时，我很喜欢去看别人的blog，</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hello-Life！"><a href="#Hello-Life！" class="headerlink" title="Hello Life！"></a>Hello Life！</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​            在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。虽然平时，我很喜欢去看别人的blog，有技术解读的，技术分享的，还有一些下载常用软件的，然后好的话还会收藏一下，但是对搭建blog这方面真没怎么研究过。但是，看得多了，就想自己试试搞一个，顺便还能学习一下。</p><h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>​            查了一些资料，也知道了一些适合建博客的几个框架啥的，比如hexo，wordpress等等，最后还是决定用hexo，觉得相对比较简单，也不用购买服务器域名啥的，适合入门，然后找了几个详细教程，就跟着完成了，效果还不错。不过默认的主题，自己确实不太喜欢，就去找了个还不错的主题—-fluid，<del>还好它的官网教程，代码注释比较详细一些</del>，按照个人的一些习惯，好歹也配置好了，目前看起来大概能用了，慢慢完善吧。</p><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>​            想着先把自己之前的一些java笔记整理放上来吧，万一用的时候，也能方便查看一些吧，<del>虽然直接搜索可能更快，但是起码要有点内容填充这里吧</del></p><h2 id="随缘更新吧"><a href="#随缘更新吧" class="headerlink" title="随缘更新吧"></a>随缘更新吧</h2><p><del>啦啦啦啦</del></p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>序言</tag>
+      
+    </tags>
     
   </entry>
   

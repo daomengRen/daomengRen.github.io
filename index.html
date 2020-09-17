@@ -176,6 +176,108 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        <a href="/2020/09/17/java%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">Java变量的初始化</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/17/java%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
+          
+          
+            
+          
+          Java变量的初始化1.  局部变量初始化（局部变量：函数、语句中的变量，只在所属区域内有效）局部变量声明后，Java虚拟机不会自动给它初始化为默认值。因此对于局部变量，必须经过显示的初始化，才能使用它，如果使用一个没有被初始化的局部变量，编译器会报错。
+局部变量存储于虚拟机栈的局部变量表中
+2.类的成员变量不管程序有没有显示的初始化，Java虚拟机都会先自动给它初始化为默认值。对于数组，数组引用
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-17 19:20" pubdate>
+              2020-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java%E7%AC%94%E8%AE%B0/">Java笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/09/17/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E5%9D%91/">输出结果题的坑</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/09/17/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E5%9D%91/">
+          
+          
+            
+          
+          记录一下做输出结果题的坑吧1. 特别要注意+​    java中**+** 除了最普通的加法运算，要特别注意它还能连接字符串
+2. 注意+ 'c');System.out.println(&#39;b&#39; + &#39;c&#39;);
+
+这个结果竟然是197，刚开始以为是bc，没想到出错了，原因如下：char 类型在运算的时候，是自动转换为int类型 进行计算的
+附上详细的转换规则：
+
+B
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-17 19:00" pubdate>
+              2020-09-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java%E7%AC%94%E8%AE%B0/">Java笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         <a href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">JAVA中的移位运算符</a>
       </h1>
 
@@ -226,17 +328,17 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/09/09/hello-world/">Hello World</a>
+        <a href="/2020/09/13/hello-world/">Hello World</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/09/hello-world/">
+        <a href="/2020/09/13/hello-world/">
           
           
             
           
-          Hello Life！前言​        在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。平时，我很喜欢去看别人的blog，
-
+          Hello Life！前言​            在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。虽然平时，我很喜欢去看别人的blog，有技术解读的，技术分享的，还有一些下载常用软件的，然后好的话还会收藏一下，但是对搭建blog这方面真没怎么研究过。但是，看得多了，就想自己试试搞一个，顺便还能学习一下。
+搭建​            查了一些资料，也知道了一些适合建博客的几
         </a>
       </p>
 
@@ -244,12 +346,19 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-09 08:55" pubdate>
-              2020-09-09
+            <time datetime="2020-09-13 21:16" pubdate>
+              2020-09-13
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BA%8F%E8%A8%80/">序言</a>
+            
+          </div>
         
       </div>
     </article>

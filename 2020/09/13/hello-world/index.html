@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>JAVA中的移位运算符 - Mine Life</title>
+  <title>Hello World - Mine Life</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-14 19:31" pubdate>
-        2020年9月14日 晚上
+      <time datetime="2020-09-13 21:16" pubdate>
+        2020年9月13日 晚上
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      298 字
+      345 字
     </span>
   
 
@@ -217,47 +217,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">JAVA中的移位运算符</h1>
+            <h1 style="display: none">Hello World</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="JAVA中的移位运算符"><a href="#JAVA中的移位运算符" class="headerlink" title="JAVA中的移位运算符"></a>JAVA中的移位运算符</h1><h2 id="java中有3中移位运算符"><a href="#java中有3中移位运算符" class="headerlink" title="java中有3中移位运算符"></a>java中有3中移位运算符</h2><ul>
-<li>&lt;&lt;  :  左移运算符，不改变符号位，num &lt;&lt; n 表示二进制左移n位，结果相当于 num * (2的n次方)</li>
-<li>&gt;&gt;  :  右移运算符，不改变符号位，num &gt;&gt; n 表示二进制右移n位，结果相当于 num / (2的n次方)</li>
-<li>&gt;&gt;&gt; : 无符号右移，长度扩展为4字节，最高位都为0，但正数扩展位补0，负数扩展位补1。若无扩展，空位补0 </li>
-</ul>
-<p>例子:</p>
-<ul>
-<li><p>&lt;&lt;  :</p>
-<p>  ​        -3 &lt;&lt; 1<br>  ​        -3的二进制表示为10000011，左移一位后不改变符号位（最高位），移位后为10000110，结果为 -3 * (2的1次方)  =  -6</p>
-</li>
-<li><p>&gt;&gt;  :</p>
-<p>​        -3 &gt;&gt; 1<br>​        同上，右移一位后不改变符号位（最高位），移位后为10000001，结果为 -3 / (2的1次方)  =  -1</p>
-</li>
-<li><p>&gt;&gt;&gt; :</p>
-<p>​        -3 &gt;&gt;&gt; 1<br>长度扩展为4字节(32位)，最高位为0，负数扩展位补1，移位后为01111111111111111111111111111110，结果为 2147483646（Integer.MAX_VALUE - 1）</p>
-<p>​        3 &gt;&gt;&gt; 1<br>​        同上，区别在于正数扩展位补0，移位后为00000000000000000000000000000001，结果为 1<br>​        若无扩展（int类型），空位补上0</p>
-<p>-733183670&gt;&gt;&gt;8</p>
-<p><img src="/img/Java/ex1.png" srcset="/img/loading.gif"></p>
-</li>
-</ul>
+              <h1 id="Hello-Life！"><a href="#Hello-Life！" class="headerlink" title="Hello Life！"></a>Hello Life！</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​            在经过长时间的咕咕咕之后，我终于利用github搭建了自己的Blog。虽然平时，我很喜欢去看别人的blog，有技术解读的，技术分享的，还有一些下载常用软件的，然后好的话还会收藏一下，但是对搭建blog这方面真没怎么研究过。但是，看得多了，就想自己试试搞一个，顺便还能学习一下。</p>
+<h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>​            查了一些资料，也知道了一些适合建博客的几个框架啥的，比如hexo，wordpress等等，最后还是决定用hexo，觉得相对比较简单，也不用购买服务器域名啥的，适合入门，然后找了几个详细教程，就跟着完成了，效果还不错。不过默认的主题，自己确实不太喜欢，就去找了个还不错的主题—-fluid，<del>还好它的官网教程，代码注释比较详细一些</del>，按照个人的一些习惯，好歹也配置好了，目前看起来大概能用了，慢慢完善吧。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>​            想着先把自己之前的一些java笔记整理放上来吧，万一用的时候，也能方便查看一些吧，<del>虽然直接搜索可能更快，但是起码要有点内容填充这里吧</del></p>
+<h2 id="随缘更新吧"><a href="#随缘更新吧" class="headerlink" title="随缘更新吧"></a>随缘更新吧</h2><p><del>啦啦啦啦</del></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java%E7%AC%94%E8%AE%B0/">Java笔记</a>
+                      <a class="hover-with-bg" href="/tags/%E5%BA%8F%E8%A8%80/">序言</a>
                     
                   </div>
                 
@@ -270,21 +247,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/17/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E5%9D%91/">
+                      <a href="/2020/09/14/JAVA%E4%B8%AD%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">输出结果题的坑</span>
+                        <span class="hidden-mobile">JAVA中的移位运算符</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2020/09/13/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -450,7 +421,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "JAVA中的移位运算符&nbsp;",
+        "Hello World&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
